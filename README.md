@@ -113,8 +113,8 @@ Categories starting with E, C, or B
 🖥️ Dashboard Preview
 
 Task 1 – Ratings vs Reviews
-
-
+![Task 1]
+(Screenshot%202026-01-17%20231620.png)
 
 Task 2 – Category Analysis
 
