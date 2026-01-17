@@ -110,34 +110,42 @@ Categories starting with E, C, or B
   Category translations applied
   Time visibility: 6 PM – 9 PM IST
 
-🖥️ Dashboard Preview
 
-Task 1 – Ratings vs Reviews
-![Task 1]
-([./Screenshot%202026-01-17%20231620.png](https://github.com/Paru-06/google-playstore-analytics-dashboard/blob/main/Screenshot%202026-01-17%20231620.png))
+## 📊 Dashboard Screenshots
 
-Task 2 – Category Analysis
+### 🟢 Task 1 – Ratings vs Reviews
+![Task 1](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231620.png)
 
 
-
-Task 3 – Global Installs
-
-
-
-Task 4 – Cumulative Installs
+### 🟢 Task 2 – Category Analysis
+![Task 2](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231653.png)
 
 
-
-Task 5 – Bubble Chart
-
-
-
-Task 6 – Time Series Trend
+### 🟢 Task 3 – Global Installs (Choropleth Map)
+![Task 3](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231730.png)
 
 
+### 🟢 Task 4 – Cumulative Installs (Stacked Area Chart)
+![Task 4](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231808.png)
 
 
----
+### 🟢 Task 5 – Bubble Chart Analysis
+![Task 5](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231836.png)
+
+
+### 🟢 Task 6 – Time Series Trend
+![Task 6](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231853.png)
+
+
+## 🧩 Complete Dashboard View
+
+### ✅ Dashboard – Active Time Window
+![Dashboard Active](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231917.png)
+
+
+### ⏰ Dashboard – Time Restricted View
+![Dashboard Restricted](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20232041.png)
+
 
 🌐 Live Project
 
