@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Google Play Store Reviews Analytics</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* Force Plotly legend to bottom in modal */
+.modal iframe html,
+.modal iframe body {
+    height: auto !important;
+}
+
+
+/* ================= HEADER ================= */
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    z-index:1000;
+    background: linear-gradient(90deg,#0b0f14,#1f2f3f);
+    box-shadow:0 6px 20px rgba(0,0,0,0.6);
+}
+
+.header-inner{
+    max-width:1400px;
+    margin:0 auto;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+/* Title */
+.title{
+    font-size:28px;
+    font-weight:600;
+    text-align:center;
+}
+
+/* Google colored letters */
+.title span:nth-child(1){color:#4285F4;}
+.title span:nth-child(2){color:#EA4335;}
+.title span:nth-child(3){color:#FBBC05;}
+.title span:nth-child(4){color:#34A853;}
+
+/* Play Store logo */
+.play{
+    position:absolute;
+    right:20px;
+}
+.play img{
+    height:36px;
+}
+
+/* ================= CONTENT ================= */
+.container{
+    padding:120px 30px 40px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+}
+
+/* ================= CARDS ================= */
+.card{
+    padding:18px;
+    border-radius:22px;
+    box-shadow:0 16px 32px rgba(0,0,0,0.45);
+    transition:box-shadow 0.3s ease, filter 0.3s ease;
+}
+.card:hover{
+    filter:brightness(1.05);
+}
+
+/* Gradients */
+/* Task 1 – Green / Orange (Ratings & Reviews) */
+.t1 {
+  background: linear-gradient(135deg, #1b5e20, #ef6c00);
+}
+
+/* Task 2 – Blue / Pink (Category Analysis) */
+.t2 {
+  background: linear-gradient(135deg, #0d47a1, #ad1457);
+}
+
+/* Task 3 – Teal / Blue (Sentiment) */
+.t3 {
+  background: linear-gradient(135deg, #006064, #1565c0);
+}
+
+/* Task 4 – Dark Slate / Green (Installs) */
+.t4 {
+  background: linear-gradient(135deg, #263238, #2e7d32);
+}
+
+/* Task 5 – Charcoal / Silver (Bubble Chart) */
+.t5 {
+  background: linear-gradient(135deg, #212121, #616161);
+}
+
+/* Task 6 – Indigo / Cyan (Time Series) */
+.t6 {
+  background: linear-gradient(135deg, #283593, #00838f);
+}
+
+
+
+/* Glow */
+.t1:hover{ box-shadow: 0 0 28px rgba(180,150,60,0.55); }
+.t2:hover{ box-shadow: 0 0 28px rgba(60,100,200,0.55); }
+.t3:hover{ box-shadow: 0 0 28px rgba(120,70,180,0.55); }
+.t4:hover{ box-shadow: 0 0 28px rgba(70,150,160,0.55); }
+.t5:hover{ box-shadow: 0 0 26px rgba(200,200,200,0.55); }
+.t6:hover{ box-shadow: 0 0 28px rgba(80,170,220,0.55); }
+
+.card h2{
+    text-align:center;
+    margin-bottom:12px;
+    font-size:20px;
+    font-weight:600;
+}
+
+/* ===== MODAL OVERLAY ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: 3% auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.modal iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: auto;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+
+/* ================= IFRAME ================= */
+iframe{
+    width:100%;
+    height:420px;
+    border:none;
+    border-radius:16px;
+    background:white;
+}
+
+.card{
+    position: relative;
+}
+
+.click-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.card iframe{
+    pointer-events: none;
+}
+
+.expand-text{
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: -8px;
+    margin-bottom: 6px;
+    letter-spacing: 0.4px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-inner">
+        <div class="title">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+            Google Play Store Reviews Analytics
+        </div>
+        <div class="play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+        </div>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="container">
+
+<div class="card t1" onclick="openModal('task1.html')">
+    <h2>Task 1 – Ratings vs Reviews</h2>
+    <p class="expand-text">Click to expand</p>
+    <iframe src="task1.html"></iframe>
+</div>
+
+<div class="card t2" onclick="openModal('task2.html')">
+    <h2>Task 2 – Category Analysis</h2>
+    <p class="expand-text">Click to expand</p>
+    <iframe class="task2-frame" src="task2.html" onclick="openModal('task2.html')"></iframe>
+</div>
+
+<div class="card t3" onclick="openModal('task3.html')">
+    <h2>Task 3 – Sentiment Insights</h2>
+    <p class="expand-text">Click to expand</p>
+    <iframe src="task3.html"></iframe>
+</div>
+
+<div class="card t4" onclick="openModal('task4.html')">
+    <h2>Task 4 – Installs Distribution</h2>
+    <p class="expand-text">Click to expand</p>
+    <iframe src="task4.html"></iframe>
+</div>
+
+<div class="card t5" onclick="openModal('task5.html')">
+    <h2>Task 5 – Bubble Chart</h2>
+    <p class="expand-text">Click to expand</p>
+    <iframe src="task5.html"></iframe>
+</div>
+
+<div class="card t6" onclick="openModal('task6.html')">
+    <h2>Task 6 – Time Series Trend</h2>
+    <p class="expand-text">Click to expand</p>
+    <iframe src="task6.html"></iframe>
+</div>
+
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()" tabindex="-1">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">✖</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
+
+<script>
+function openModal(src){
+    const modal = document.getElementById("modal");
+    const frame = document.getElementById("modalFrame");
+
+    frame.src = src;
+    modal.style.display = "block";
+    modal.focus();
+}
+
+function closeModal(){
+    const modal = document.getElementById("modal");
+    const frame = document.getElementById("modalFrame");
+
+    modal.style.display = "none";
+    frame.src = "";   // prevents blinking
+}
+
+
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        closeModal();
+    }
+});
+
+/* 🔒 Force focus back to modal when iframe steals it */
+const modal = document.getElementById("modal");
+const modalFrame = document.getElementById("modalFrame");
+
+/* When iframe is clicked, refocus modal */
+modalFrame.addEventListener("load", () => {
+    modalFrame.contentWindow.addEventListener(
+        "mousedown",
+        () => modal.focus(),
+        true
+    );
+
+    modalFrame.contentWindow.addEventListener(
+        "keydown",
+        (e) => {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        },
+        true
+    );
+});
+
+</script>
+
+</body>
+</html>
