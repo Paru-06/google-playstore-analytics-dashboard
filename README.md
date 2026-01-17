@@ -1,187 +1,208 @@
-# google-playstore-analytics-dashboard
+📊 Google Play Store Analytics Dashboard
 
-**📊 Google Play Store Analytics Dashboard**
+An **interactive analytics dashboard** built using the **Google Play Store datasets**, developed as part of my **Data Analytics Internship project**.  
+All tasks are implemented by **building on the original training project**, strictly following internship instructions.
 
-**Internship Project – Data Analyst**
+✔ Same dataset as training  
+✔ No unrelated datasets  
+✔ No new projects  
 
-An interactive analytics dashboard built using Python, Pandas, and Plotly, based on the Google Play Store dataset.
-This project extends the training work by implementing advanced analytical tasks, time-based visibility logic, and a unified dashboard.
+---
 
-**🔍 Project Overview**
-This project analyzes Google Play Store apps to uncover insights related to:
+📁 Datasets Used
 
-1.App ratings and reviews
-2.Category performance
-3.Global installs
-4.Revenue vs installs (Free vs Paid)
-5.Sentiment impact
-6.Growth trends over time
+This project is built using the **official Google Play Store datasets**:
 
-All visualizations are integrated into a single interactive dashboard with time-restricted access, as required by the internship guidelines.
+• **Play Store Data.csv**  
+  → App details such as category, rating, installs, size, reviews, last updated, etc.
 
-📁 Dataset Used - The project uses the same dataset provided during training (as required):
-
-1.Play Store Data.csv
-2.User Reviews.csv
-❗ No external or unrelated datasets were used.
-
-**🛠️ Tools & Technologies**
-
-*Python
-*Pandas
-*Plotly (Express & Graph Objects)
-*HTML / CSS
-*Jupyter Notebook
-*GitHub Pages (Hosting)
-
-**📊 Dashboard Tasks Implemented**
-**Task 1 – Ratings vs Reviews (Grouped Bar Chart)**
-
-**Filters:**
-  *Rating ≥ 4.0
-  *App size ≥ 10 MB
-  *Last updated in January
-  *Top 10 categories by installs
-  *Time visibility: 3 PM – 5 PM IST
-
-**Task 2 – Free vs Paid Apps (Dual-Axis Chart)**
-Compares average installs vs revenue
-
-**Filters:**
-  *Android version > 4.0
-  *Size > 15 MB
-  *Content rating = Everyone
-  *App name ≤ 30 characters
-  *Installs ≥ 10,000
-  *Revenue ≥ $10,000
-  *Time visibility: 1 PM – 2 PM IST
-
-**Task 3 – Global Installs (Choropleth Map)
-**
-  *Top 5 categories by installs
-  *Excludes categories starting with A, C, G, S
-  *Highlights installs > 1 million
-  *Time visibility: 6 PM – 8 PM IST
-
-**Task 4 – Cumulative Installs Over Time (Stacked Area Chart)**
-
-**Filters:**
-  *Rating ≥ 4.2
-  *No numbers in app name
-  *Categories starting with T or P
-  *Reviews > 1,000
-  *Size between 20–80 MB
-
-**Category translations:**
-  *Travel & Local → French
-  *Productivity → Spanish
-  *Photography → Japanese
-  *Highlights >25% MoM growth
-  *Time visibility: 4 PM – 6 PM IST
-
-**Task 5 – Size vs Rating (Bubble Chart)
-**
-Bubble size = installs
-
-**Filters:**
-  *Rating > 3.5
-  *Reviews > 500
-  *Installs > 50,000
-  *Sentiment subjectivity > 0.5
-  *App name does not contain “S”
-
-**Category translations:**
-  Beauty → Hindi
-  Business → Tamil
-  Dating → German
-
-*GAME category highlighted in pink
-*Time visibility: 5 PM – 7 PM IST
-
-**Task 6 – Installs Trend Over Time (Line Chart)
-**
-Categories starting with E, C, or B
-
-**App name:**
-  Does not start with X, Y, Z
-  Does not contain “S”
-  Reviews > 500
-  Highlights >20% MoM growth
-  Category translations applied
-  Time visibility: 6 PM – 9 PM IST
+• **User Reviews.csv**  
+  → User sentiment data including subjectivity and polarity scores
 
 
-## 📊 Dashboard Screenshots
+---
 
+🌟 Project Overview
+
+The dashboard provides insights into:
+
+📌 App performance & ratings  
+📌 Category-wise install trends  
+📌 Free vs Paid app revenue comparison  
+📌 Global installs visualization  
+📌 Sentiment-based app analysis  
+📌 Time-based growth highlighting  
+
+All analyses are combined into a **single live dashboard**, hosted using **GitHub Pages**.
+
+---
+
+🧩 Implemented Tasks
+
+### 🔹 Task 1 – Ratings vs Reviews
+Grouped bar chart comparing **average rating** and **total reviews** for the top 10 categories by installs.
+
+**Filters applied:**
+• Rating ≥ 4.0  
+• Size ≥ 10 MB  
+• Last updated in January  
+
+⏰ Visible only between **3 PM – 5 PM IST**
+
+📸 Screenshot:  
 ### 🟢 Task 1 – Ratings vs Reviews
 ![Task 1](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231620.png)
 
 
+---
+
+### 🔹 Task 2 – Free vs Paid Category Analysis
+Dual-axis chart comparing **average installs** and **average revenue** for Free vs Paid apps.
+
+**Filters applied:**
+• Android version > 4.0  
+• Size > 15 MB  
+• Content rating = Everyone  
+• App name ≤ 30 characters  
+• Installs ≥ 10,000  
+• Revenue ≥ $10,000  
+
+⏰ Visible only between **1 PM – 2 PM IST**
+
+📸 Screenshot:  
 ### 🟢 Task 2 – Category Analysis
 ![Task 2](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231653.png)
 
+---
 
+### 🔹 Task 3 – Global Installs Choropleth Map 🌍
+Interactive map showing **global installs by app category**.
+
+**Conditions:**
+• Top 5 categories only  
+• Categories NOT starting with A, C, G, or S  
+• Highlight installs > 1 million  
+
+⏰ Visible only between **6 PM – 8 PM IST**
+
+📸 Screenshot:  
 ### 🟢 Task 3 – Global Installs (Choropleth Map)
 ![Task 3](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231730.png)
 
 
+---
+
+### 🔹 Task 4 – Cumulative Installs Over Time 📈
+Stacked area chart showing **cumulative installs by category over time**.
+
+**Special features:**
+• App filters based on rating, reviews, size  
+• Category translations in legend  
+• Months with **>25% MoM growth highlighted using increased color intensity**
+
+⏰ Visible only between **4 PM – 6 PM IST**
+
+📸 Screenshot:  
 ### 🟢 Task 4 – Cumulative Installs (Stacked Area Chart)
 ![Task 4](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231808.png)
 
+---
 
+### 🔹 Task 5 – Bubble Chart Analysis 🔵
+Bubble chart showing the relationship between **app size, rating, and installs**.
+
+**Additional conditions:**
+• Rating > 3.5  
+• Reviews > 500  
+• App name does NOT contain “S”  
+• Sentiment subjectivity > 0.5  
+• Installs > 50,000  
+• GAME category highlighted in **pink**
+
+**Category Translations:**
+• Beauty → Hindi  
+• Business → Tamil  
+• Dating → German  
+
+⏰ Visible only between **5 PM – 7 PM IST**
+
+📸 Screenshot:  
 ### 🟢 Task 5 – Bubble Chart Analysis
 ![Task 5](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231836.png)
 
 
+---
+
+### 🔹 Task 6 – Install Trends Over Time ⏱
+Time-series line chart showing **total installs trend over time by category**.
+
+**Highlights:**
+• Categories starting with E, C, or B  
+• App names not starting with X, Y, Z  
+• Reviews > 500  
+• >20% MoM growth highlighted using shaded regions  
+• Category translations applied
+
+⏰ Visible only between **6 PM – 9 PM IST**
+
+📸 Screenshot:  
 ### 🟢 Task 6 – Time Series Trend
 ![Task 6](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231853.png)
 
 
-## 🧩 Complete Dashboard View
+---
 
-### ✅ Dashboard – Active Time Window
+🧭 Dashboard View
+
+### ✅ Dashboard During Active Time
 ![Dashboard Active](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20231917.png)
 
-
-### ⏰ Dashboard – Time Restricted View
+### ⛔ Dashboard During Restricted Time
 ![Dashboard Restricted](https://raw.githubusercontent.com/Paru-06/google-playstore-analytics-dashboard/main/Screenshot%202026-01-17%20232041.png)
+---
 
+⏰ Time-Based Visibility Logic
 
-🌐 Live Project
+Each task is protected using **strict IST time gates**.
 
-Dashboard URL (GitHub Pages):
-👉 (https://paru-06.github.io/google-playstore-analytics-dashboard/)
+Outside the allowed time window:
+✔ Graph is hidden  
+✔ “Task Unavailable” message is shown  
+✔ Dashboard layout remains consistent  
 
-📂 Repository Structure
+This ensures **full compliance with internship requirements**.
 
-google-playstore-analytics-dashboard/
-│
-├── dashboard.html
-├── task1.html
-├── task2.html
-├── task3.html
-├── task4.html
-├── task5.html
-├── task6.html
-├── Play Store Data.csv
-├── User Reviews.csv
-├── screenshots/
-│   ├── task1_ratings_vs_reviews.png
-│   ├── task2_category_analysis.png
-│   ├── task3_choropleth.png
-│   ├── task4_area_chart.png
-│   ├── task5_bubble_chart.png
-│   └── task6_time_series.png
-└── README.md
+---
 
-**📝 Notes**
+🚀 Live Project Links
 
-1.All internship tasks were implemented on one unified dataset
-2.Time-based visibility is handled programmatically
-3.Project is fully reproducible and interactive
-4.Follows all NullClass internship submission rules
+🌐 **Live Dashboard (GitHub Pages):**  
+https://paru-06.github.io/google-playstore-analytics-dashboard/
 
-**👤 Author**
+📂 **GitHub Repository:**  
+https://github.com/Paru-06/google-playstore-analytics-dashboard
 
-Parkavi K
-Data Analyst Intern
+---
+
+🛠 Tools & Technologies
+
+• Python  
+• Pandas  
+• Plotly (Graph Objects & Express)  
+• Jupyter Notebook  
+• HTML & CSS  
+• GitHub Pages  
+
+---
+
+✨ Final Note
+
+This project demonstrates my ability to:
+✔ Clean and transform real-world datasets  
+✔ Apply complex filtering logic  
+✔ Build interactive, time-controlled dashboards  
+✔ Present insights in a clear and professional manner  
+
+👩‍💻 **Parkavi K**  
+📊 *Data Analytics Intern*  
+🌟 *This internship experience was insightful, challenging, and highly valuable for my learning journey.*
